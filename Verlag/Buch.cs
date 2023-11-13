@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,12 +11,23 @@ namespace Verlag
     {
         private string autor;
         private string titel;
-        private int auflage;
+        private int auflage = 1;
         public Buch (string autor, string titel, int auflage)
         {
-            this.autor = autor;
-            this.titel = titel;
-            this.auflage = auflage;
+            if (auflage < 1)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            else if (1 <1)
+            {
+
+            }
+            else 
+            {
+                this.autor = autor;
+                this.titel = titel;
+                this.auflage = auflage;
+            }
         }
         
         public Buch (string autor, string titel)
@@ -37,8 +49,15 @@ namespace Verlag
         public int Auflage
         {
             get { return auflage; }
-            set {  auflage = value; }
-        }
+            set 
+            {
+                if (auflage > 0)
+                {
+                    auflage = value;
+                }
+                else { throw new ArgumentOutOfRangeException(); }
+            }
+        }   
 
 
 
