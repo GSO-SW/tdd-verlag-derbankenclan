@@ -107,7 +107,7 @@ namespace VerlagTests
 		}
 
         [TestMethod]
-		public void Buch_Hat_ISBN()
+		public void Buch_HatISBN()
         {
 			//Arrange
 			string isbn = "978-3770436163";
@@ -117,6 +117,21 @@ namespace VerlagTests
 
             //Assert
             Assert.AreEqual(isbn, b.ISBN);
+        }
+
+        [TestMethod]
+        public void Buch_ISBN13_PruefzuggerWirdAutomatischBerechnet()
+        {
+            //Arrange
+            string isbnOhnePruefziffer = "978-377043614";
+			string isbnPruefziffer = "978-3770436149";
+			Buch b = new Buch("autor", "titel");
+
+            //Act
+			b.ISBN = isbnOhnePruefziffer;
+
+            //Assert
+            Assert.AreEqual(isbnPruefziffer, b.ISBN);
         }
     }
 }
