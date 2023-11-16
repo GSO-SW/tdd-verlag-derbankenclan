@@ -15,6 +15,13 @@ namespace Verlag
         private string isbn;
         public Buch(string autor, string titel, int auflage, string isbn)
         {
+            if( isbn.Length == 13 )
+            {
+                foreach (char c in isbn)
+                {
+                    
+                }
+            }
 
             this.autor = autor;
             this.titel = titel;
